@@ -85,6 +85,7 @@ const config = {
 			backgroundImage: {
 				"hero-pattern": "url('/grainy.png')",
 				chat: "url('/chat-bg-pc.jpg')",
+				"chat-mobile": "url('/chat-bg-mobile.jpg')",
 				"auth-layout": "url('/noise.svg')",
 			},
 		},

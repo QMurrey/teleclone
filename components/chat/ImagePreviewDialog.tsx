@@ -9,7 +9,7 @@ interface ImagePreviewDialogProps {
 	setStep?: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const ImagePreviewDialog: React.FC<ImagePreviewDialogProps> = ({ selectedFile, onClose, onImageChange, setStep }) => (
+const ImagePreviewDialog = ({ selectedFile, onClose, onImageChange, setStep }: ImagePreviewDialogProps) => (
 	<Dialog open={!!selectedFile}>
 		<DialogContent
 			className=' bg-sigMain border border-sigColorBgBorder md:max-w-3xl max-w-xl h-[80vh] flex flex-col '

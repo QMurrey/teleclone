@@ -13,6 +13,26 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ],
   secret:process.env.AUTH_SECRET,
   callbacks: {
+    // Чтобы получать ID, добавляем отдельный колбэк
+    async session({session}) {
+      try {
+        await connectToMongoDB();
+        if (session.user) {
+          const user = await User.findOne({email: session.user.email});
+          if (user) {
+            session.user._id = user._id;
+            return session;
+          } else {
+            throw new Error('Пользователь не был найден')
+          }
+        } else {
+          throw new Error('Ошибка в сессии');
+        }
+      } catch (error) {
+        console.log('Ошибка при поиске пользователя:\n', error);
+        throw new Error('Ошибка в сессии');
+      }
+    },
     async signIn({account, profile}) {
       if (account?.provider === 'github') {
         await connectToMongoDB();

@@ -4,11 +4,12 @@ import { Avatar, AvatarImage } from "../ui/Avatar";
 import { Button } from "../ui/Button";
 import Image from "next/image";
 import { auth } from "@/auth";
+import { Chats } from "./chats";
 
 const ChatSideBar = async () => {
 	const session = await auth();
 	return (
-		<aside className='flex-[1_1_0%] flex flex-col bg-black text-white'>
+		<aside className='flex-[1_1_0%] max-w-96 flex flex-col bg-black text-white'>
 			<div className='sticky top-0 bg-black z-50'>
 				<div className='flex items-center justify-between p-4 border-b border-gray-800 '>
 					<div className='relative'>
@@ -17,7 +18,7 @@ const ChatSideBar = async () => {
 						</Avatar>
 					</div>
 					<Button className='bg-sigButton hover:bg-sigButtonHover text-white rounded-full h-8 w-8 relative p-2'>
-						<Image src={"/chat.svg"} fill alt='Chat icon' />
+						<Image src={"/chat.svg"} fill alt='Chat icon' priority={true} />
 					</Button>
 					<LogOutButton/>
 				</div>
@@ -32,6 +33,7 @@ const ChatSideBar = async () => {
 					</div>
 				</div>
 			</div>
+			<Chats/>
 		</aside>
 	);
 };
