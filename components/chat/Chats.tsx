@@ -3,8 +3,10 @@ import { getUsersForSidebar } from '@/lib/data'
 import React from 'react'
 import Chat from './Chat'
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 export const Chats = async () => {
-  const session = await auth()
+  const session = await auth();
+  await sleep(1500); // Функция сна для проверки работы стриминга
   const chats = session?.user ? await getUsersForSidebar(session.user._id) : [];
 
   return (

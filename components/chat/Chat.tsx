@@ -3,7 +3,7 @@ import React from 'react'
 import { Avatar, AvatarImage } from '../ui/Avatar';
 import Image from 'next/image';
 import { formatDate } from '@/lib/utils';
-import { ImageMessageSvg, TextMessageSent, TextMessageSvgReceived } from '../svg/chatSvg';
+import { ImageMessageSvg, TextMessageSent, TextMessageSvgReceived } from '../svg/ChatSvg';
 
 interface ChatProps {
   chat: any,

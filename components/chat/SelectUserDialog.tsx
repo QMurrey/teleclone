@@ -1,7 +1,7 @@
 // Потому как родитель (ChatCamera) использует клиент, компоненты так же вызываются на клиенте
 import { Dialog, DialogContent, DialogFooter, DialogClose, DialogHeader } from "../ui/Dialog";
 import { Button } from "../ui/Button";
-import { TextMessageSent } from "../svg/chatSvg";
+import { TextMessageSent } from "../svg/ChatSvg";
 import { SearchIcon } from "lucide-react";
 import UserCard from "./UserCard";
 

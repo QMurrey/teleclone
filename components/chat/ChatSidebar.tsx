@@ -5,6 +5,8 @@ import { Button } from "../ui/Button";
 import Image from "next/image";
 import { auth } from "@/auth";
 import { Chats } from "./chats";
+import { Suspense } from "react";
+import { ChatsSkeleton } from "./ChatSkeletons";
 
 const ChatSideBar = async () => {
 	const session = await auth();
@@ -33,7 +35,10 @@ const ChatSideBar = async () => {
 					</div>
 				</div>
 			</div>
-			<Chats/>
+			{/* Компонент Suspense из реакт подгружает placeholder (fallback), пока грузится элемент внутри */}
+			<Suspense fallback={<ChatsSkeleton/>}>
+				<Chats/>
+			</Suspense>
 		</aside>
 	);
 };
